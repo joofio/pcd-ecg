@@ -13,8 +13,9 @@ import os
 ## execute function for converting ##
 def execute(filelist):
     # print(os.getcwd())
+    "-i ignores images"
     os.chdir("pdf")
-    command = "pdftohtml -xml " + filelist + " ../xml/" + filelist[:-4] + ".xml"
+    command = "pdftohtml -xml -i" + filelist + " ../xml/" + filelist[:-4] + ".xml"
     os.system(command)
 
 

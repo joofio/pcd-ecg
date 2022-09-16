@@ -22,6 +22,7 @@ import sys
 ### Define functions for converting
 ## Parsing and collect element in XML file!
 def par_elem(i):
+    print(i)
     tree = ET.ElementTree(file=i)
     inf = []
     for elem in tree.iter():
@@ -345,7 +346,8 @@ def fnd_prt(inf_tmp_2, qtqtc_vl_tmp):
 
 
 def execute(filelist):
-    os.chdir("/directory/xml")
+    print(os.getcwd())
+    os.chdir("xml")
     try:
         inf_tmp, filename = par_elem(filelist)
         inf_tmp_2 = par_elem_2(filelist)
@@ -412,7 +414,9 @@ def main(filelist):
     startTime = int(time.time())
     counter = 0
 
-    dt_tmp = pool.map(execute, filelist)
+    # dt_tmp = pool.map(execute, filelist)#
+    dt_tmp = [execute(x) for x in filelist]
+    print(dt_tmp)
     if dt_tmp is not None:
         df_tmp = pd.DataFrame(
             {
@@ -455,7 +459,7 @@ def main(filelist):
 if __name__ == "__main__":
     print("Start extract ECG text data!")
 
-    os.chdir("/directory/")
+    os.chdir("directory/")
     search_directory = "xml"
     filelist = listdir(search_directory)
     main(filelist)

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pdf2xml SYSTEM "pdf2xml.dtd">
+
+<pdf2xml producer="poppler" version="22.08.0">
+<page number="1" position="absolute" top="0" left="0" height="892" width="1263">
+	<fontspec id="0" size="14" family="Arial" color="#000000"/>
+	<fontspec id="1" size="21" family="Arial,Bold" color="#000000"/>
+	<fontspec id="2" size="18" family="Arial,Bold" color="#000000"/>
+	<fontspec id="3" size="19" family="Arial" color="#000000"/>
+	<fontspec id="4" size="15" family="Arial,Bold" color="#000000"/>
+	<fontspec id="5" size="14" family="Arial,Bold" color="#000000"/>
+	<fontspec id="6" size="10" family="Arial" color="#ff9999"/>
+<image top="22" left="43" width="117" height="72" src="directory/pdf/pdf1-1_1.png"/>
+<text top="858" left="1102" width="70" height="12" font="0">Pag.1 de 1</text>
+<text top="25" left="207" width="356" height="19" font="1"><b>CENTRO HOSPITALAR DO PORTO</b></text>
+<text top="60" left="207" width="194" height="16" font="2"><b>Serviço de Cardiologia</b></text>
+<text top="25" left="605" width="207" height="18" font="3">ELETROCARDIOGRAMA</text>
+<text top="111" left="43" width="198" height="14" font="4"><b>MANUEL ANTONIO BRANCO</b></text>
+<text top="154" left="43" width="111" height="12" font="0">Nº Proc.: 1470752</text>
+<text top="176" left="43" width="159" height="12" font="0">Episódio: 21141932 URG</text>
+<text top="197" left="43" width="53" height="12" font="0">SEXO: M</text>
+<text top="197" left="173" width="63" height="12" font="0">IDADE: 89</text>
+<text top="219" left="43" width="212" height="12" font="0">DATA/HORA: 11-12-2021 09:18:29</text>
+<text top="253" left="43" width="186" height="12" font="5"><b>Frequência Cardíaca: 60 bpm</b></text>
+<text top="154" left="389" width="140" height="12" font="0">Duração QRS: 149 ms</text>
+<text top="176" left="389" width="131" height="12" font="0">QT/QTC: 469/472 ms</text>
+<text top="197" left="389" width="128" height="12" font="0">Intervalo PQ: 267 ms</text>
+<text top="219" left="389" width="147" height="12" font="0">Eixo P/QRS/T: 89/-68/81</text>
+<text top="67" left="605" width="89" height="14" font="4"><b>RELATÓRIO:</b></text>
+<text top="858" left="518" width="170" height="12" font="0">Técnico:Tecª Dorys Ferreira</text>
+<text top="831" left="1162" width="39" height="9" font="6">dotLogic</text>
+<text top="629" left="86" width="7" height="12" font="0">II</text>
+<text top="716" left="86" width="15" height="12" font="0">V1</text>
+<text top="327" left="86" width="4" height="12" font="0">I</text>
+<text top="413" left="86" width="7" height="12" font="0">II</text>
+<text top="500" left="86" width="10" height="12" font="0">III</text>
+<text top="327" left="367" width="26" height="12" font="0">aVR</text>
+<text top="413" left="367" width="24" height="12" font="0">aVL</text>
+<text top="500" left="367" width="24" height="12" font="0">aVF</text>
+<text top="327" left="648" width="15" height="12" font="0">V1</text>
+<text top="413" left="648" width="15" height="12" font="0">V2</text>
+<text top="500" left="648" width="15" height="12" font="0">V3</text>
+<text top="327" left="929" width="15" height="12" font="0">V4</text>
+<text top="413" left="929" width="15" height="12" font="0">V5</text>
+<text top="500" left="929" width="15" height="12" font="0">V6</text>
+<text top="824" left="65" width="122" height="12" font="0">25mm/s  10mm/mV</text>
+</page>
+</pdf2xml>
