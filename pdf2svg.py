@@ -12,24 +12,26 @@ import os
 
 ## execute function for converting ##
 def execute(filelist):
-    os.chdir("/directory/pdf")
-    command = (
-        "inkscape -z -f /directory/pdf/"
-        + filelist
-        + " -l /directory/svg/"
-        + filelist
-        + ".svg"
-    )
+    """needs inkscape installed"""
+    # print(os.getcwd())
+    os.chdir("pdf")
+
+    command = "inkscape -z -f " + filelist + " ../svg/" + filelist[:-4] + ".svg"
+
     os.system(command)
-    os.chdir("/directory/pdf ")
-    # directory is the physical directory where the file is located
+
+
+# os.chdir("/directory/pdf ")
+# directory is the physical directory where the file is located
 
 
 if __name__ == "__main__":
+    """assumes a directory with two folder (pdf and svg) exists in the same folder as this script"""
+
     print("Start convert ECG data!")
 
-    os.chdir("/directory/")
-    search_directory = "pdf "
+    os.chdir("directory/")
+    search_directory = "pdf"
     filelist = listdir(search_directory)
 
     processor = cpu_count()
@@ -41,10 +43,12 @@ if __name__ == "__main__":
 
     print("Number_of_pdf_file :", len(filelist))
 
-    pool = Pool(processes=cpu_count())
+    # pool = Pool(processes=cpu_count())
 
     startTime = int(time.time())
     print(startTime)
-    pool.map(execute, filelist)
+    # pool.map(execute, filelist)
+    for f in filelist:  # no need for multiprocessing
+        execute(f)
     endTime = int(time.time())
     print("Total converting time", (endTime - startTime))

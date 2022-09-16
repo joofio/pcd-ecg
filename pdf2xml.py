@@ -12,23 +12,22 @@ import os
 
 ## execute function for converting ##
 def execute(filelist):
-    os.chdir("/Users/joaoalmeida/Desktop/pcd-ecg/directory/pdf")
-    command = (
-        "pdftohtml -xml /Users/joaoalmeida/Desktop/pcd-ecg/directory/pdf/"
-        + filelist
-        + " /Users/joaoalmeida/Desktop/pcd-ecg/directory/xml/"
-        + filelist
-        + ".xml"
-    )
+    # print(os.getcwd())
+    os.chdir("pdf")
+    command = "pdftohtml -xml " + filelist + " ../xml/" + filelist[:-4] + ".xml"
     os.system(command)
-    os.chdir("/Users/joaoalmeida/Desktop/pcd-ecg/directory/pdf")
-    # directory is the physical directory where the file is located
+
+
+# os.chdir("/Users/joaoalmeida/Desktop/pcd-ecg/directory/pdf")
+# directory is the physical directory where the file is located
 
 
 if __name__ == "__main__":
+    """assumes a directory with two folder (pdf and xml) exists in the same folder as this script"""
     print("Start convert ECG data!")
 
     os.chdir("directory/")
+    #  print(os.getcwd())
     search_directory = "pdf"
     filelist = listdir(search_directory)
     print(filelist)
@@ -46,7 +45,7 @@ if __name__ == "__main__":
     startTime = int(time.time())
     print(startTime)
     # pool.map(execute, filelist)
-    for f in filelist:
+    for f in filelist:  # no need for multiprocessing
         execute(f)
     endTime = int(time.time())
     print("Total converting time", (endTime - startTime))

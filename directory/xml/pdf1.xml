@@ -10,7 +10,7 @@
 	<fontspec id="4" size="15" family="Arial,Bold" color="#000000"/>
 	<fontspec id="5" size="14" family="Arial,Bold" color="#000000"/>
 	<fontspec id="6" size="10" family="Arial" color="#ff9999"/>
-<image top="22" left="43" width="117" height="72" src="/Users/joaoalmeida/Desktop/pcd-ecg/directory/xml/pdf1.pdf-1_1.png"/>
+<image top="22" left="43" width="117" height="72" src="../xml/pdf1-1_1.png"/>
 <text top="858" left="1102" width="70" height="12" font="0">Pag.1 de 1</text>
 <text top="25" left="207" width="356" height="19" font="1"><b>CENTRO HOSPITALAR DO PORTO</b></text>
 <text top="60" left="207" width="194" height="16" font="2"><b>Serviço de Cardiologia</b></text>
