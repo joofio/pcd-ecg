@@ -12,19 +12,26 @@ import os
 
 ## execute function for converting ##
 def execute(filelist):
-    os.chdir("./pdf")
-    command = "pdftohtml -xml ./pdf/" + filelist + " ./xml/" + filelist + ".xml"
+    os.chdir("/Users/joaoalmeida/Desktop/pcd-ecg/directory/pdf")
+    command = (
+        "pdftohtml -xml /Users/joaoalmeida/Desktop/pcd-ecg/directory/pdf/"
+        + filelist
+        + " /Users/joaoalmeida/Desktop/pcd-ecg/directory/xml/"
+        + filelist
+        + ".xml"
+    )
     os.system(command)
-    os.chdir("./pdf")
+    os.chdir("/Users/joaoalmeida/Desktop/pcd-ecg/directory/pdf")
     # directory is the physical directory where the file is located
 
 
 if __name__ == "__main__":
     print("Start convert ECG data!")
 
-    os.chdir(".")
+    os.chdir("directory/")
     search_directory = "pdf"
     filelist = listdir(search_directory)
+    print(filelist)
     processor = cpu_count()
     proc = os.getpid()
 
@@ -34,10 +41,12 @@ if __name__ == "__main__":
 
     print("Number_of_pdf_file :", len(filelist))
 
-    pool = Pool(processes=cpu_count())
+    # pool = Pool(processes=cpu_count())
 
     startTime = int(time.time())
     print(startTime)
-    pool.map(execute, filelist)
+    # pool.map(execute, filelist)
+    for f in filelist:
+        execute(f)
     endTime = int(time.time())
     print("Total converting time", (endTime - startTime))
