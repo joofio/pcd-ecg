@@ -35,8 +35,11 @@ def pol2cart(polar):
 def pars_info(file):
     print(file)
     paths, attributes, svg_attributes = svg2paths2("directory/svg/" + file)
-    pth_tmp = paths[411:]
-
+    # pth_tmp = paths[411:]
+    pth_tmp = paths
+    print("paths", paths)
+    # print(attributes)
+    # print(svg_attributes)
     return pth_tmp
 
 
@@ -56,6 +59,7 @@ def corrd2data(lst_tmp):
     x_list = []
     y_list = []
     n = 0
+    #  print("lst_tmp", lst_tmp)
     for i in lst_tmp:
         x = []
         y = []
@@ -95,7 +99,7 @@ def corrd2data(lst_tmp):
             end_poi_y = []
             x_list.append(x[2:])
             y_list.append(y[2:])
-
+    # print(x_list, y_list)
     return x_list, y_list
 
 
@@ -168,6 +172,7 @@ def inter2(x_list, y_list):
 
 ### fixing data to fit baseline of ECG!
 def fix_data(x_list, y_list):
+    # print(x_list, y_list)
     ## calculate final y value of baseline!
     f_bl = y_list[0][-1]
     s_bl = y_list[1][-1]
@@ -381,15 +386,24 @@ def execute(file):
     try:
         # first, change file to data list of ECG!
         pth_tmp = pars_info(file)
+        # print("pth_tmp", pth_tmp)
+        print("aqui1")
         lst_tmp = chang_corrd(pth_tmp)
+        print("aqui2")
         x_list, y_list = corrd2data(lst_tmp)
+        print("aqui3")
+        # print(x_list)
         x_list, y_list = fix_data(x_list, y_list)
+        print("aqui4")
         x_list, y_list = adj(x_list, y_list)
-
+        print("aqui5")
         # second, parsing filename and change saving filename!
         name = str(file)
+        print("aqui6")
         p_id = gt_id(name)
+        print("aqui7")
         date = gt_date(name)
+        print("aqui8")
         time = gt_time(name)
         endnum = gt_endnum(name)
 
@@ -538,10 +552,11 @@ def execute(file):
             compression="gzip",
         )
         # exception handling
-    except IndexError:
-        print(file)
-        os.system("mv directory/svg/" + file + " directory/unusual_svg/")
-        # None
+    except IndexError as err:
+        print(err)
+    # print(file)
+    # os.system("mv directory/svg/" + file + " directory/unusual_svg/")
+    # None
     return None
 
 

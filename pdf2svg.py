@@ -15,26 +15,19 @@ def execute(filelist):
     """needs inkscape installed"""
     """-z is for no gui"""
     """-f is for file"""
+    """l is for plain svg"""
     # print(os.getcwd())
     # os.chdir("pdf")
     print(filelist)
     dirs = "directory/"
     pdf_directory = dirs + "pdf/"  # pdf directory
     svg_directory = dirs + "svg/"  # svg directory
-    # command = (
-    #    "inkscape -z  "
-    #    + pdf_directory
-    #    + filelist
-    #    + " "
-    #    + svg_directory
-    #    + filelist[:-4]
-    #    + ".svg"
-    # )
+    # command = "inkscape -z -f /directory/pdf/"+filelist+" -l /directory/svg/"+filelist+".svg"
     command = (
-        "inkscape --export-filename="
+        "inkscape -l --export-filename="
         + svg_directory
         + filelist[:-4]
-        + ".svg "
+        + ".svg --export-type=svg "
         + pdf_directory
         + filelist
     )
