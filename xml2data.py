@@ -22,6 +22,7 @@ import sys
 ### Define functions for converting
 ## Parsing and collect element in XML file!
 def par_elem(i):
+    print(os.getcwd())
     print(i)
     tree = ET.ElementTree(file=i)
     inf = []
@@ -347,7 +348,8 @@ def fnd_prt(inf_tmp_2, qtqtc_vl_tmp):
 
 def execute(filelist):
     print(os.getcwd())
-    os.chdir("xml")
+    print(filelist)
+    # os.chdir("directory/xml")
     try:
         inf_tmp, filename = par_elem(filelist)
         inf_tmp_2 = par_elem_2(filelist)
@@ -404,18 +406,23 @@ def execute(filelist):
 
 
 def main(filelist):
-    processor = cpu_count()
-    proc = os.getpid()
+    # processor = cpu_count()
+    # proc = os.getpid()
 
-    print("proc_id", proc)
-    print(os.fork())
-    pool = Pool(processes=cpu_count())
-    print("Number of processor:", processor)
+    # print("proc_id", proc)
+    # print(os.fork())
+    # pool = Pool(processes=cpu_count())
+    # print("Number of processor:", processor)
     startTime = int(time.time())
     counter = 0
+    xml_directory = "directory/xml/"
+    print(filelist)
+    dt_tmp = []
+    for file in filelist:
+        dt_tmp.append(execute(xml_directory + file))
 
     # dt_tmp = pool.map(execute, filelist)#
-    dt_tmp = [execute(x) for x in filelist]
+    # dt_tmp = [execute(x) for x in pdf_directory + filelist]
     print(dt_tmp)
     if dt_tmp is not None:
         df_tmp = pd.DataFrame(
@@ -459,7 +466,7 @@ def main(filelist):
 if __name__ == "__main__":
     print("Start extract ECG text data!")
 
-    os.chdir("directory/")
-    search_directory = "xml"
+    # os.chdir("directory/")
+    search_directory = "directory/xml"
     filelist = listdir(search_directory)
     main(filelist)

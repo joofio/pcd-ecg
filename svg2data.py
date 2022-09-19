@@ -35,15 +35,17 @@ def pol2cart(polar):
 def pars_info(file):
     print(file)
     paths, attributes, svg_attributes = svg2paths2("directory/svg/" + file)
-    # pth_tmp = paths[411:]
-    pth_tmp = paths
-    print("paths", paths)
+    pth_tmp = paths[411:]
+    # pth_tmp = paths
+    print(pth_tmp)
+    # print("paths", paths)
     # print(attributes)
     # print(svg_attributes)
     return pth_tmp
 
 
 def chang_corrd(pth_tmp):
+
     lst_tmp = []
     n = 0
     for i in pth_tmp:
@@ -52,6 +54,7 @@ def chang_corrd(pth_tmp):
         lst_tmp = lst_tmp + path_tmp
         n = n + 1
         path_tmp = []
+    # print(lst_tmp)
     return lst_tmp
 
 
@@ -59,12 +62,13 @@ def corrd2data(lst_tmp):
     x_list = []
     y_list = []
     n = 0
-    #  print("lst_tmp", lst_tmp)
+    print("lst_tmp", lst_tmp)
     for i in lst_tmp:
+        #  print(i)
         x = []
         y = []
         for i[n] in i:
-
+            # print(i[n])
             # [0] is first part!
             real_num_s = i[n][0].real
             imag_num_s = i[n][0].imag
@@ -97,9 +101,13 @@ def corrd2data(lst_tmp):
             y = y + start_poi_y + end_poi_y
             start_poi_y = []
             end_poi_y = []
+            print(x)
+            print(y)
             x_list.append(x[2:])
             y_list.append(y[2:])
-    # print(x_list, y_list)
+            # x_list.append(x)
+            # y_list.append(y)
+    #  print(x_list, y_list)
     return x_list, y_list
 
 
@@ -387,23 +395,25 @@ def execute(file):
         # first, change file to data list of ECG!
         pth_tmp = pars_info(file)
         # print("pth_tmp", pth_tmp)
-        print("aqui1")
+        # print("aqui1")
+        # print(pth_tmp)
         lst_tmp = chang_corrd(pth_tmp)
-        print("aqui2")
+        # print("aqui2")
+        print(lst_tmp)
         x_list, y_list = corrd2data(lst_tmp)
-        print("aqui3")
-        # print(x_list)
+        # print("aqui3")
+
         x_list, y_list = fix_data(x_list, y_list)
-        print("aqui4")
+        # print("aqui4")
         x_list, y_list = adj(x_list, y_list)
-        print("aqui5")
+        # print("aqui5")
         # second, parsing filename and change saving filename!
         name = str(file)
-        print("aqui6")
+        # print("aqui6")
         p_id = gt_id(name)
-        print("aqui7")
+        # print("aqui7")
         date = gt_date(name)
-        print("aqui8")
+        # print("aqui8")
         time = gt_time(name)
         endnum = gt_endnum(name)
 
