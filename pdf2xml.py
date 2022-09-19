@@ -12,10 +12,21 @@ import os
 
 ## execute function for converting ##
 def execute(filelist):
-    # print(os.getcwd())
-    "-i ignores images"
-    os.chdir("pdf")
-    command = "pdftohtml -xml -i" + filelist + " ../xml/" + filelist[:-4] + ".xml"
+    print(os.getcwd())
+    print(filelist)
+    """-i ignores images"""
+    # os.chdir("directory/pdf")
+    pdf_directory = "directory/pdf/"
+    xml_directory = "directory/xml/"
+    command = (
+        "pdftohtml -xml -i "
+        + pdf_directory
+        + filelist
+        + " "
+        + xml_directory
+        + filelist[:-4]
+        + ".xml"
+    )
     os.system(command)
 
 
@@ -27,17 +38,17 @@ if __name__ == "__main__":
     """assumes a directory with two folder (pdf and xml) exists in the same folder as this script"""
     print("Start convert ECG data!")
 
-    os.chdir("directory/")
+    # os.chdir("directory/")
     #  print(os.getcwd())
-    search_directory = "pdf"
+    search_directory = "directory/pdf"
     filelist = listdir(search_directory)
     print(filelist)
-    processor = cpu_count()
-    proc = os.getpid()
+    # processor = cpu_count()
+    # proc = os.getpid()
 
-    print("proc_id", proc)
-    print(os.fork())
-    print("Number of processor:", processor)
+    # print("proc_id", proc)
+    # print(os.fork())
+    # print("Number of processor:", processor)
 
     print("Number_of_pdf_file :", len(filelist))
 

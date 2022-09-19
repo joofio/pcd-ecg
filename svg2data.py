@@ -33,7 +33,8 @@ def pol2cart(polar):
 
 
 def pars_info(file):
-    paths, attributes, svg_attributes = svg2paths2(file)
+    print(file)
+    paths, attributes, svg_attributes = svg2paths2("directory/svg/" + file)
     pth_tmp = paths[411:]
 
     return pth_tmp
@@ -539,7 +540,7 @@ def execute(file):
         # exception handling
     except IndexError:
         print(file)
-        os.system("mv /directory/svg/" + file + " /directory/unusual_svg/")
+        os.system("mv directory/svg/" + file + " directory/unusual_svg/")
         # None
     return None
 
@@ -547,17 +548,18 @@ def execute(file):
 if __name__ == "__main__":
     print("Start converting ECG data!")
 
-    os.chdir("/directory/")
-    search_directory = "svg"
+    # os.chdir("./directory/")
+    search_directory = "directory/svg"
     filelist = listdir(search_directory)
-    os.chdir("/directory/svg")
+    # os.chdir("./directory/svg")
     print("Number_of_svg_file :", len(filelist))
-    processor = cpu_count()
-    pool = Pool(processes=cpu_count())
-    print("Number of processor:", processor)
+    # processor = cpu_count()
+    # pool = Pool(processes=cpu_count())
+    # print("Number of processor:", processor)
     startTime = int(time.time())
-
-    pool.map(execute, filelist)
+    for f in filelist:  # no need for multiprocessing
+        execute(f)
+    # pool.map(execute, filelist)
 
     endTime = int(time.time())
     print("Total converting time", (endTime - startTime))

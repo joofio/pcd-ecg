@@ -13,11 +13,33 @@ import os
 ## execute function for converting ##
 def execute(filelist):
     """needs inkscape installed"""
+    """-z is for no gui"""
+    """-f is for file"""
     # print(os.getcwd())
-    os.chdir("pdf")
+    # os.chdir("pdf")
+    print(filelist)
+    dirs = "directory/"
+    pdf_directory = dirs + "pdf/"  # pdf directory
+    svg_directory = dirs + "svg/"  # svg directory
+    # command = (
+    #    "inkscape -z  "
+    #    + pdf_directory
+    #    + filelist
+    #    + " "
+    #    + svg_directory
+    #    + filelist[:-4]
+    #    + ".svg"
+    # )
+    command = (
+        "inkscape --export-filename="
+        + svg_directory
+        + filelist[:-4]
+        + ".svg "
+        + pdf_directory
+        + filelist
+    )
 
-    command = "inkscape -z -f " + filelist + " ../svg/" + filelist[:-4] + ".svg"
-
+    print(command)
     os.system(command)
 
 
@@ -30,16 +52,18 @@ if __name__ == "__main__":
 
     print("Start convert ECG data!")
 
-    os.chdir("directory/")
-    search_directory = "pdf"
-    filelist = listdir(search_directory)
+    # os.chdir("directory/")
+    # search_directory = "pdf"
+    pdf_directory = "directory/pdf"
+    filelist = listdir(pdf_directory)
+    print(filelist)
 
-    processor = cpu_count()
-    proc = os.getpid()
+    # processor = cpu_count()
+    # proc = os.getpid()
 
-    print("proc_id", proc)
-    print(os.fork())
-    print("Number of processor:", processor)
+    # print("proc_id", proc)
+    # print(os.fork())
+    # print("Number of processor:", processor)
 
     print("Number_of_pdf_file :", len(filelist))
 
